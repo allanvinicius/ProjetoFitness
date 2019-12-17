@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	 xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title>Informacoes</title>
+</h:head>
+
+<h:body style="background-image: url(https://st4.depositphotos.com/1229718/20734/i/1600/depositphotos_207344858-stock-photo-lifestyle-background-healthy-active-fitness.jpg);background-size:cover">
+	<h1 align="center">Informações da dieta</h1>
+	
+<h:form id="form_tab_dieta">
+	<h:dataTable id="tab_dieta" value="#{dietaBean.dietas}" var="dieta">
+		<h:column>	
+			<h:outputText style="font-size:60px;font-weight:bold;color:white" value="#{dieta.nomeDieta}"/>
+		</h:column>
+	</h:dataTable>
+</h:form>
+
+<h:form>
+	<h:dataTable id="tab_dieta" value="#{dietaBean.alimentos}" var="dieta">
+		<h:column>
+			<f:facet name="header">Nome do alimento</f:facet>	
+			<h:outputText value="#{dieta.nome}" style="font-weight:bold;color:white;"/>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Calorias</f:facet>
+			<h:outputText value="#{dieta.calorias}" style="font-weight:bold;color:white;"/>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Tipo de porcao</f:facet>
+			<h:outputText value="#{dieta.tipoPorcao}" style="font-weight:bold;color:white;"/>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Tipo de refeicao</f:facet>
+			<h:outputText value="#{dieta.tipoRefeicao}" style="font-weight:bold;color:white;"/>
+		</h:column>
+	</h:dataTable>
+	
+</h:form>	
+
+<h:form >
+	<h2 style="font-weight:bold;">Dados do cliente</h2>
+	
+		<label style="font-weight:bold;color:white;">Clientes :</label>
+		
+		<!-- Lista de clientes cadastrados -->
+			<h:selectOneMenu id="dieta" value="#{dietaBean.clienteId}">
+				<f:selectItems value="#{dietaBean.clientes}" var="cliente"
+					itemValue="#{cliente.id}" itemLabel="#{cliente.nome}"/>
+			</h:selectOneMenu>
+			
+			<p:commandButton action="#{dietaBean.SalvarCliente}"
+				value="Adicionar Cliente">
+			</p:commandButton>
+			
+			<!-- Componente para exibir os clientes da dieta -->
+			<h:dataTable id="tab_dietas" value="#{dietaBean.clienteDaDieta}" var="dieta">
+				<h:column>
+					<h:outputText value="#{dieta.nome}"/>
+				</h:column>
+			</h:dataTable>
+			
+			<b:commandButton  value=" Voltar" action="#{dietaBean.formDieta}" look="danger"/>
+</h:form>
+</h:body>
+</html>

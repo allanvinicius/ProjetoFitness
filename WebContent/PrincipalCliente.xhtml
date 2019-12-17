@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	 xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title>Principal Cliente</title>
+</h:head>
+
+<h:body style="background-image: url(https://st4.depositphotos.com/1229718/20734/i/1600/depositphotos_207344858-stock-photo-lifestyle-background-healthy-active-fitness.jpg);background-size:cover">
+	<h1 align="center">Clientes</h1>
+</h:body>
+
+<h:form>
+	<b:commandButton value="Início" action="#{clienteBean.telaPrincipal}" look="success"/>
+	<b:commandButton value="Adicionar Cliente" action="#{clienteBean.AddCliente}" look="warning"/>
+</h:form>
+
+<h:form id="form_tab_cliente">
+	<h2 align="center">Clientes cadastrados</h2>
+		<h:dataTable id="tab_cliente" value="#{clienteBean.clientes}" var="cliente">
+			<h:column>
+				<f:facet name="header">Nome </f:facet>
+				<h:outputText value="#{cliente.nome}" style="font-weight:bold;color:white;float:left;"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Telefone </f:facet>
+				<h:outputText value="#{cliente.telefone}" style="font-weight:bold;color:white;margin-top:5px;"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">E-mail </f:facet>
+				<h:outputText value="#{cliente.email}" style="font-weight:bold;color:white;float:right"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header"> Ações </f:facet>
+				
+				<b:commandLink value="Alterar" action="#{clienteBean.carregar(cliente)}" look="info" icon="pencil"/>
+				<b:commandLink value=" Excluir" action="#{clienteBean.remover(cliente.id)}" look="danger" icon="trash"/>	
+			</h:column>
+		</h:dataTable>
+</h:form>
+</html>

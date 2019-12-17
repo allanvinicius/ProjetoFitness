@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Cadastro de clientes</title>
+</h:head>
+
+<h:body style="background-image: url(https://st4.depositphotos.com/1229718/20734/i/1600/depositphotos_207344858-stock-photo-lifestyle-background-healthy-active-fitness.jpg);background-size:cover">
+	<h1 style="font-weight: bold;">Cadastro de clientes</h1>
+</h:body>
+
+<h:form>
+	<label style="font-weight: bold;color:white">Nome </label>
+	<p:inputText value="#{clienteBean.cliente.nome}" />
+	<br/>
+	
+	<label style="font-weight: bold;color:white">E-mail </label>
+	<p:inputText value="#{clienteBean.cliente.email}" />
+	<br/>
+	
+	<label style="font-weight: bold;color:white">Telefone </label>
+	<p:inputText value="#{clienteBean.cliente.telefone}" />
+	<br/>
+	
+	<label style="font-weight: bold;color:white">Peso Atual </label>
+	<p:inputText value="#{clienteBean.cliente.pesoAtual}" />
+	<br/>
+	
+	<label style="font-weight: bold;color:white">Peso Desejado </label>
+	<p:inputText value="#{clienteBean.cliente.pesoDesejado}" />
+	<br/>
+	
+	<b:commandButton action="#{clienteBean.salvarCliente}" look="primary" value="Salvar"/>
+	<b:commandButton  value=" Voltar" action="#{clienteBean.formCliente}" look="danger"/>
+</h:form>
+</html>

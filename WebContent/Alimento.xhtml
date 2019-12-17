@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title>Cadastro de alimentos</title>
+</h:head>
+
+<h:body style="background-image: url(https://st4.depositphotos.com/1229718/20734/i/1600/depositphotos_207344858-stock-photo-lifestyle-background-healthy-active-fitness.jpg);background-size:cover">
+	<h1 style="font-weight: bold;"> Cadastro de alimentos</h1>
+</h:body>
+
+<h:form>
+	<label style="font-weight:bold;color:white">Nome do alimento</label>
+	<p:inputText value="#{alimentoBean.alimento.nome}" />
+	<br/>
+	
+	<label style="font-weight:bold;color:white">Calorias</label>
+	<p:inputText value="#{alimentoBean.alimento.calorias}"/>
+	<br/>
+	
+	<label style="font-weight:bold;color:white">Tipo de porcao </label>
+	<p:selectOneMenu value="#{alimentoBean.alimento.tipoPorcao}">
+		<f:selectItem itemValue="UNIDADES" itemLabel="UNIDADES"/>
+		<f:selectItem itemValue="GRAMAS" itemLabel="GRAMAS"/>
+		<f:selectItem itemValue="MLs" itemLabel="MLs" />
+	</p:selectOneMenu>
+	<br/>
+	
+	<label style="font-weight:bold;color:white">Tipo de refeicao</label>
+	<p:selectOneMenu value="#{alimentoBean.alimento.tipoRefeicao}">
+		<f:selectItem itemValue="CafeDaManha" itemLabel="CafeDaManha"/>
+		<f:selectItem itemValue="Almoço" itemLabel="Almoço"/>
+		<f:selectItem itemValue="CafeDaTarde" itemLabel="CafeDaTarde"/>
+		<f:selectItem itemValue="Jantar" itemLabel="Jantar"/>
+	</p:selectOneMenu>
+	<br/>
+	<br/>
+	
+	<b:commandButton action="#{alimentoBean.salvarAlimento}" look="primary" icon="ui-icon-check" value="Salvar"/>
+	<b:commandButton  value=" Voltar" action="#{alimentoBean.formAlimento}" look="danger" icon="ui-icon-back"/>
+</h:form>	
+</html>
